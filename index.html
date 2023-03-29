@@ -1,19 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DiAnterin | Kiriman Anda Prioritas Kami</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-</head>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 
-<body>
-    <div class="d-flex justify-content-center align-items-center vh-100">
-        <h1 class="text-warning">Coming soon!</h1>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Carter+One&family=Poiret+One&display=swap");
+
+      body,
+      html {
+        height: 100%;
+      }
+      .navbar-brand {
+        font-family: "Carter One", cursive;
+      }
+      a.nav-link:hover,
+      a.nav-link.active {
+        text-decoration: none;
+        border-bottom: 2px solid #fff;
+      }
+      .banner {
+        background-image: url("assets/images/jumbo.jpg");
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position-x: 0%;
+        background-size: cover;
+        position: relative;
+        z-index: 1;
+      }
+      .banner::before {
+        content: "";
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.4);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="banner text-white">
+      <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="#">
+            <img
+              src="assets/images/logo-dianterin.png"
+              alt="Logo"
+              width="50"
+              height="34"
+              class="d-inline-block align-text-top"
+            />
+            diAnterin
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item mx-3">
+                <a
+                  class="nav-link active text-white"
+                  aria-current="page"
+                  href="#"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link text-white" href="#">Our Services</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link text-white" href="#">About Us</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+              <button class="btn btn-warning" type="submit">Contact Us</button>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="position-absolute start-50 top-50 translate-middle">
+        <h3 class="fs-1 text-center mb-4">
+          Your Shipment is Our
+          <br />Priority!
+        </h3>
+        <div class="d-flex justify-content-around">
+          <button class="btn btn-outline-warning" type="submit">
+            Get Started
+          </button>
+          <button class="btn btn-warning" type="submit">Discover More</button>
+        </div>
+      </div>
     </div>
-    <script src="assets/js/bootstrap.bundle.min.js">
-    </script>
-</body>
-
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
