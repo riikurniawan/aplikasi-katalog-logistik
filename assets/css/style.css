@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&family=Poiret+One&display=swap");
+
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+      }
+
+      /* Firefox */
+      * {
+        scrollbar-width: 10px;
+        scrollbar-color: #ffc107 #212529;
+        border: none;
+      }
+
+      /* Chrome, Edge and Safari */
+      *::-webkit-scrollbar {
+        width: 10px;
+        width: 10px;
+        border: none;
+        box-sizing: border-box;
+      }
+      *::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background-color: #212529;
+      }
+
+      *::-webkit-scrollbar-track:hover {
+        background-color: #212529;
+      }
+
+      *::-webkit-scrollbar-track:active {
+        background-color: #212529;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: #ffc107;
+      }
+
+      *::-webkit-scrollbar-thumb:hover {
+        background-color: #ff9900;
+      }
+
+      *::-webkit-scrollbar-thumb:active {
+        background-color: #ff9900;
+      }
+
+      nav.navbar {
+        transition: 0.3s ease-in-out;
+      }
+      .company-title {
+        font-family: "Carter One", cursive;
+      }
+
+      .layout {
+        overflow-x: hidden;
+      }
+
+      .bg-main {
+        height: 100vh;
+        background-image: url(../images/jumbo.jpg);
+        filter: brightness(0.5);
+      }
+
+      .section {
+        height: 500px;
+      }
