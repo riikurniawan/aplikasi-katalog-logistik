@@ -1,5 +1,6 @@
 <h3 align="center">
-  <img src="https://raw.githubusercontent.com/riikurniawan/aplikasi-katalog-logistik/master/assets/images/logo.png" width="100" alt="Logo" style="margin-bottom:10px"/><br/>
+  <img src="https://raw.githubusercontent.com/riikurniawan/aplikasi-katalog-logistik/master/assets/images/logo.png#gh-light-mode-only" width="100" alt="Logo" style="margin-bottom:10px"/><br/>
+  <img src="https://raw.githubusercontent.com/riikurniawan/aplikasi-katalog-logistik/master/assets/images/logo-dianterin.png#gh-dark-mode-only" width="100" alt="Logo" style="margin-bottom:10px"/><br/>
   DiAnterin
 </h3>
 
