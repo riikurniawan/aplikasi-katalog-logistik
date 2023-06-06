@@ -10,6 +10,29 @@
 
 ---
 
+## ⚙️ Instalasi
+
+✔️ XAMPP ([download](https://www.apachefriends.org/download.html)). Versi `7.4` atau terbaru. <br/>
+✔️ Composer ([download](https://getcomposer.org)). Versi `2.5.2` atau terbaru.
+
+```bash
+$ composer install
+```
+
+---
+
+## ⚙️ Koneksi Database
+Buat file baru `.env` di root folder project. <br/>
+**Harap disesuaikan!**.
+```
+DB_HOST=<hostname>
+DB_PORT=<port>
+DB_NAME=dianterindb
+DB_USER=<user>
+DB_PASS=<password>
+```
+
+
 ### ⭐️ Fitur
 - **Admin** dapat melakukan penambahan, perubahan dan penghapusan produk.
 - **Admin** dapat menentukan apakah suatu produk dipublikasikan atau tidak, hanya produk yang dipublikasikan yang muncul di halaman user.
