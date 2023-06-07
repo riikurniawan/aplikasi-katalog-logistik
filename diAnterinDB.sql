@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2023 at 01:04 PM
+-- Generation Time: Jun 07, 2023 at 04:13 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -28,16 +28,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `Name` varchar(100) NOT NULL,
-  `Username` varchar(50) NOT NULL,
-  `Password` varchar(255) NOT NULL
+  `nama` varchar(100) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`Name`, `Username`, `Password`) VALUES
+INSERT INTO `admin` (`nama`, `username`, `password`) VALUES
 ('ahan', 'ahan', '$2y$10$W/5TRY0G.bXWHnwNoPUcruDRgDzZnMyz/UBpFtV5/sbLoaPcs6CC.'),
 ('Ari Kurniawan', 'ari', '$2y$10$Qnt53TXHKrxV5.OvAM2Ry.v/iSfiebPRTKQYA5YPJrrIjEvO41s9W'),
 ('cindy', 'cindy', '$2y$10$h4i.BS7U.vddEM58FoxfdO8pJ/f.KUwkbwQc83imm5fmaW6gWIxcq'),
@@ -51,14 +51,14 @@ INSERT INTO `admin` (`Name`, `Username`, `Password`) VALUES
 --
 
 CREATE TABLE `product` (
-  `Product_ID` char(5) NOT NULL,
-  `Nama` varchar(50) NOT NULL,
-  `Deskripsi` text NOT NULL,
-  `Harga` decimal(10,2) NOT NULL,
-  `Status_Publikasi` tinyint(1) NOT NULL,
-  `Berat` int(5) NOT NULL,
-  `Gambar` varchar(255) NOT NULL,
-  `Jangkauan_Pengirirman` varchar(255) NOT NULL
+  `product_id` char(5) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `harga` decimal(10,2) NOT NULL,
+  `status_publikasi` tinyint(1) NOT NULL,
+  `berat` int(5) NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  `jangkauan_pengirirman` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -69,13 +69,23 @@ CREATE TABLE `product` (
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`Username`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`Product_ID`);
+  ADD PRIMARY KEY (`product_id`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `Product_ibfk_1` FOREIGN KEY (`Created_By`) REFERENCES `admin` (`Username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
