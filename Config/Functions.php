@@ -5,7 +5,7 @@ include 'Database.php';
 class Functions extends Database {
     public function login($username,$password) {
         // $sql = "SELECT * FROM Admin WHERE Username= :username AND Password= :password";
-        $sql = "SELECT * FROM Admin WHERE Username= :username";
+        $sql = "SELECT * FROM admin WHERE Username= :username";
         $data = [
             ":username" => htmlspecialchars($username)
             // ":password" => htmlspecialchars($password)

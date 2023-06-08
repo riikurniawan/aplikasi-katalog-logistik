@@ -1,5 +1,6 @@
 <h3 align="center">
-  <img src="https://raw.githubusercontent.com/riikurniawan/aplikasi-katalog-logistik/master/assets/images/logo.png" width="100" alt="Logo" style="margin-bottom:10px"/><br/>
+  <img src="https://raw.githubusercontent.com/riikurniawan/aplikasi-katalog-logistik/master/assets/images/logo.png#gh-light-mode-only" width="100" alt="Logo" style="margin-bottom:10px"/><br/>
+  <img src="https://raw.githubusercontent.com/riikurniawan/aplikasi-katalog-logistik/master/assets/images/logo-dianterin.png#gh-dark-mode-only" width="100" alt="Logo" style="margin-bottom:10px"/><br/>
   DiAnterin
 </h3>
 
@@ -8,6 +9,29 @@
 </p>
 
 ---
+
+## ⚙️ Instalasi
+
+✔️ XAMPP ([download](https://www.apachefriends.org/download.html)). Versi `7.4` atau terbaru. <br/>
+✔️ Composer ([download](https://getcomposer.org)). Versi `2.5.2` atau terbaru.
+
+```bash
+$ composer install
+```
+
+---
+
+## ⚙️ Koneksi Database
+Buat file baru `.env` di root folder project. <br/>
+**Harap disesuaikan!**.
+```
+DB_HOST=<hostname>
+DB_PORT=<port>
+DB_NAME=dianterindb
+DB_USER=<user>
+DB_PASS=<password>
+```
+
 
 ### ⭐️ Fitur
 - **Admin** dapat melakukan penambahan, perubahan dan penghapusan produk.
