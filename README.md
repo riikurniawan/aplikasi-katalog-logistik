@@ -15,6 +15,7 @@
 ✔️ XAMPP ([download](https://www.apachefriends.org/download.html)). Versi `7.4` atau terbaru. <br/>
 ✔️ Composer ([download](https://getcomposer.org)). Versi `2.5.2` atau terbaru.
 
+Buka terminal lalu jalankan perintah berikut. Untuk menginstall library!
 ```bash
 $ composer install
 ```
