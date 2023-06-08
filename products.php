@@ -6,13 +6,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DiAnterin | Product</title>
+
+    <!-- bootstrap css -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
-    <link rel="icon" href="assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
-    <link rel="icon" href="assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
-    <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
-    <link href="/assets/fontaecss/fontawesome.css" rel="stylesheet">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
+
+    <!-- favicon -->
+    <link rel="icon" href="/assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
+    <link rel="icon" href="/assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
+
+    <!-- custom scripts -->
+    <script src="/assets/js/scripts.js"></script>
 
     <style>
         body {
@@ -47,23 +56,22 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item mx-3">
+                        <li class="nav-item mx-lg-3">
                             <a class="nav-link" href="/index.php">Home</a>
                         </li>
-                        <li class="nav-item mx-3">
-                            <a class="nav-link" href="/product.php">Product</a>
+                        <li class="nav-item mx-lg-3">
+                            <a class="nav-link" href="/products.php">Product</a>
                         </li>
-                        <li class="nav-item mx-3">
+                        <li class="nav-item mx-lg-3">
                             <a class="nav-link" href="/about.php">About Us</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item mb-2">
                         <a class="btn btn-warning" href="/admin/index.php">Login</a>
-                    </ul>
+                    </li>
                 </div>
             </div>
         </nav>
-
 
         <main>
             <section id="about">
@@ -81,7 +89,8 @@
                         <div class="col-5 col-sm-5 col-lg-3">
                             <select name="weight" id="weight" class="form-select">
                                 <option value="" selected disabled>Weight</option>
-                                <option value="">< 5Kg</option>
+                                <option value="">
+                                    < 5Kg</option>
                                 <option value="">> 10Kg</option>
                             </select>
                         </div>
