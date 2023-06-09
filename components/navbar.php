@@ -8,7 +8,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto border border-danger">
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item mx-lg-3">
                             <a class="nav-link" href="/index.php">Home</a>
                         </li>
