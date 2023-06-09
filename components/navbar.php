@@ -19,7 +19,7 @@
                             <a class="nav-link" href="/about.php">About Us</a>
                         </li>
                     </ul>
-                    <li class="nav-item mb-2 border border-danger">
+                    <li class="nav-item mb-2">
                         <a class="btn btn-warning" href="/admin/index.php">Login</a>
                     </li>
                 </div>
