@@ -7,7 +7,7 @@
   <title>DiAnterin | Your shipment is our priority</title>
 
   <!-- bootstrap css -->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
 
   <!-- custom css -->
   <link rel="stylesheet" href="/assets/css/style.css" />
@@ -52,9 +52,11 @@
     </main>
   </div>
 
+  <!-- footer -->
   <?php include './components/footer.php' ?>
-  
-  <script src=" assets/js/bootstrap.bundle.min.js">
+
+  <!-- bootstrap js minified -->
+  <script src="/assets/js/bootstrap.bundle.min.js">
   </script>
   <script>
     // trigger navbar changing background to dark when scrolling page
