@@ -13,10 +13,24 @@ if (isset($_SESSION['logged_in'])) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DiAnterin Admin - Login</title>
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css" />
+    <title>DiAnterin | Login</title>
+
+    <!-- bootstrap css -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
+
+    <!-- favicon -->
+    <link rel="icon" href="/assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
+    <link rel="icon" href="/assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
+
+    <!-- custom scripts -->
+    <script src="/assets/js/scripts.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <style>
@@ -28,7 +42,7 @@ if (isset($_SESSION['logged_in'])) {
             background-size: cover;
             height: 100svh;
             width: 100svw;
-            filter: brightness(0.6);
+            filter: brightness(0.4);
 
         }
 
@@ -59,7 +73,7 @@ if (isset($_SESSION['logged_in'])) {
                     <form method="post" v-on:submit.prevent="submitForm" class="mb-4">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" name="username" v-model="username" placeholder="Enter your username..." v-bind:class="{ error: usernameError }">
+                            <input type="text" class="form-control" name="username" v-model="username" placeholder="Enter your username..." v-bind:class="{ error: usernameError }" autocomplete="off">
                             <span class="form-text text-danger" v-if="usernameError">{{ usernameError }}</span>
                         </div>
                         <div class="mb-3">
@@ -67,17 +81,27 @@ if (isset($_SESSION['logged_in'])) {
                             <input type="password" class="form-control" name="password" v-model="password" placeholder="Enter your password..." v-bind:class="{ error: passwordError }">
                             <span class="form-text text-danger" v-if="passwordError">{{ passwordError }}</span>
                         </div>
-                        <div class="d-grid gap-2">
-                            <button type="submit" name="submit" class=" btn btn-outline-warning">Sign in <i class="fas fa-arrow-circle-right"></i> </button>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="showPassword">
+                            <label class="form-check-label" for="showPassword">Show password</label>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" name="submit" class="px-4 py-2 rounded-5 btn btn-warning btn-login">Login <i class="fas fa-arrow-circle-right"></i> </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/jquery.min.js"></script>
+
+    <!-- bootstrap js minified -->
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jquery cdn links -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <!-- sweetalert2 cdn links -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <script>
         const app = new Vue({
             el: "#app",
@@ -105,7 +129,7 @@ if (isset($_SESSION['logged_in'])) {
                                     Swal.fire({
                                         title: 'Login Success!',
                                         html: "You'll be redirect in <b></b> milliseconds.",
-                                        timer: 3000,
+                                        timer: 2000,
                                         timerProgressBar: true,
                                         didOpen: () => {
                                             Swal.showLoading()
@@ -114,13 +138,12 @@ if (isset($_SESSION['logged_in'])) {
                                             timerInterval = setInterval(() => {
                                                 b.textContent = Swal
                                                     .getTimerLeft()
-                                            }, 500)
+                                            }, 100)
                                         },
                                         willClose: () => {
                                             clearInterval(timerInterval)
                                         }
                                     }).then((result) => {
-                                        /* Read more about handling dismissals below */
                                         if (result.dismiss === Swal.DismissReason
                                             .timer) {
                                             window.location.href = 'home.php';
@@ -156,6 +179,17 @@ if (isset($_SESSION['logged_in'])) {
                     }
                     return true;
                 }
+            }
+        })
+
+        // show password
+        const password_toggle = document.getElementById("showPassword")
+        const password_input = document.querySelector("input[name=password]")
+        password_toggle.addEventListener("click", () => {
+            if (password_input.type === 'password') {
+                password_input.type = "text"
+            } else {
+                password_input.type = "password"
             }
         })
     </script>
