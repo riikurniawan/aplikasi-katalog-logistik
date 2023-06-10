@@ -15,24 +15,21 @@
 ✔️ XAMPP ([download](https://www.apachefriends.org/download.html)). Versi `7.4` atau terbaru. <br/>
 ✔️ Composer ([download](https://getcomposer.org)). Versi `2.5.2` atau terbaru.
 
-Buka terminal lalu jalankan perintah berikut. Untuk menginstall library!
+Buka terminal lalu jalankan perintah berikut.
 ```bash
 $ composer install
 ```
 
----
-
-## ⚙️ Koneksi Database
 Buat file baru `.env` di root folder project. <br/>
-**Harap disesuaikan!**.
+Kemudian tuliskan kode berikut.
 ```
-DB_HOST=<hostname>
-DB_PORT=<port>
-DB_NAME=dianterindb
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=diAnterinDB
 DB_USER=<user>
 DB_PASS=<password>
 ```
-
+---
 
 ### ⭐️ Fitur
 - **Admin** dapat melakukan penambahan, perubahan dan penghapusan produk.
