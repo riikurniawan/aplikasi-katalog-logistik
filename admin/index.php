@@ -59,19 +59,16 @@ if (isset($_SESSION['logged_in'])) {
                     <form method="post" v-on:submit.prevent="submitForm" class="mb-4">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" name="username" v-model="username" placeholder="Enter your username..."
-                                v-bind:class="{ error: usernameError }">
+                            <input type="text" class="form-control" name="username" v-model="username" placeholder="Enter your username..." v-bind:class="{ error: usernameError }">
                             <span class="form-text text-danger" v-if="usernameError">{{ usernameError }}</span>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" v-model="password" placeholder="Enter your password..."
-                                v-bind:class="{ error: passwordError }">
+                            <input type="password" class="form-control" name="password" v-model="password" placeholder="Enter your password..." v-bind:class="{ error: passwordError }">
                             <span class="form-text text-danger" v-if="passwordError">{{ passwordError }}</span>
                         </div>
                         <div class="d-grid gap-2">
-                            <button type="submit" name="submit" class=" btn btn-outline-warning">Sign in <i
-                                    class="fas fa-arrow-circle-right"></i> </button>
+                            <button type="submit" name="submit" class=" btn btn-outline-warning">Sign in <i class="fas fa-arrow-circle-right"></i> </button>
                         </div>
                     </form>
                 </div>
@@ -92,7 +89,7 @@ if (isset($_SESSION['logged_in'])) {
                 errors: null
             },
             methods: {
-                submitForm: function () {
+                submitForm: function() {
                     if (this.validateForm()) {
                         $.ajax({
                             method: 'POST',
@@ -105,7 +102,6 @@ if (isset($_SESSION['logged_in'])) {
                             success: (response) => {
                                 if (response.success) {
                                     // redirect ke halaman selanjutnya jika berhasil login
-                                    let timerInterval
                                     Swal.fire({
                                         title: 'Login Success!',
                                         html: "You'll be redirect in <b></b> milliseconds.",
@@ -118,7 +114,7 @@ if (isset($_SESSION['logged_in'])) {
                                             timerInterval = setInterval(() => {
                                                 b.textContent = Swal
                                                     .getTimerLeft()
-                                            }, 100)
+                                            }, 500)
                                         },
                                         willClose: () => {
                                             clearInterval(timerInterval)
@@ -146,7 +142,7 @@ if (isset($_SESSION['logged_in'])) {
                         });
                     }
                 },
-                validateForm: function () {
+                validateForm: function() {
                     this.usernameError = "";
                     this.passwordError = "";
                     if (!this.username) {
