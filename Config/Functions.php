@@ -1,22 +1,23 @@
 <?php
 
+// koneksi database
 include 'Database.php';
 
 class Functions extends Database {
+    
+    // method untuk login
     public function login($username,$password) {
-        // $sql = "SELECT * FROM Admin WHERE Username= :username AND Password= :password";
-        $sql = "SELECT * FROM admin WHERE Username= :username";
+        $sql = "SELECT * FROM admin WHERE username= :username";
         $data = [
             ":username" => htmlspecialchars($username)
-            // ":password" => htmlspecialchars($password)
         ];
         $stmt = $this->db()->prepare($sql);
         $stmt->execute($data);
 
-        $isAdmin = $stmt->fetch(PDO::FETCH_ASSOC);
-        if($isAdmin) {
-            if(password_verify($password, $isAdmin["Password"]))   {
-                return array('success' => $isAdmin["Name"]);
+        $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($admin) {
+            if(password_verify($password, $admin["password"]))   {
+                return array('success' => $admin["nama"]);
             } else {
                 return array('success' => false, 'fail' => "Wrong password!");
             }
