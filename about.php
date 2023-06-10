@@ -78,8 +78,10 @@
         </main>
     </div>
 
+    <!-- footer -->
     <?php include './components/footer.php' ?>
 
+    <!-- bootstrap js minified -->
     <script src=" assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
