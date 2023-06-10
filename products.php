@@ -8,7 +8,7 @@
     <title>DiAnterin | Product</title>
 
     <!-- bootstrap css -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- custom css -->
     <link rel="stylesheet" href="/assets/css/style.css" />
@@ -28,9 +28,10 @@
             padding-top: 50px;
         }
 
-        body > .layout {
+        body>.layout {
             padding-bottom: 50px;
         }
+
         .card-img-top {
             width: 100%;
             height: 15vw;
@@ -164,9 +165,11 @@
         </main>
     </div>
 
+    <!-- footer -->
     <?php include './components/footer.php' ?>
 
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- bootstrap js minified -->
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
