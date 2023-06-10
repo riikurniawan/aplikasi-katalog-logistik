@@ -49,51 +49,23 @@
           </div>
         </div>
       </section>
-      <section id="about">
-        <div class="container mt-3 mb-5">
-          <div class="row">
-            <h3 class="card-title text-center section-title mb-3">
-              About Us
-            </h3>
-            <div class="col-md-6 col-lg-5 d-flex justify-content-center">
-              <img src="assets/images/company.jpg" alt="company images" class="img-fluid rounded" />
-            </div>
-            <div class="col-md-6 col-lg-7 d-flex align-items-center flex-column my-3">
-              <div class="d-flex align-items-center">
-                <img src="assets/images/logo.png" alt="company logo" height="80" />
-                <h4 class="card-title ms-2 company-title">diAnterin</h4>
-              </div>
-              <div class="my-3">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Distinctio, explicabo adipisci magnam quibusdam atque,
-                  libero facere perspiciatis iste expedita iure asperiores!
-                  Quia sint culpa possimus inventore quaerat eos at aliquam
-                  vero repudiandae sit, laboriosam iusto harum, temporibus
-                  sequi fugit autem tempora laborum veniam illum corrupti,
-                  earum eius fugiat ipsa. At qui adipisci ratione, reiciendis
-                  nam quia obcaecati explicabo quos atque pariatur, a
-                  distinctio. Officia, rem amet. Amet beatae maxime minima
-                  laboriosam fuga obcaecati fugit cupiditate repudiandae,
-                  doloribus ad animi hic?
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   </div>
 
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <?php include './components/footer.php' ?>
+  
+  <script src=" assets/js/bootstrap.bundle.min.js">
+  </script>
   <script>
     // trigger navbar changing background to dark when scrolling page
     window.onscroll = function() {
       scrollFunction();
     };
 
+    const navbar = document.getElementById("navbar");
+    navbar.classList.remove("bg-dark")
+
     function scrollFunction() {
-      const navbar = document.getElementById("navbar");
       if (
         document.body.scrollTop > 20 ||
         document.documentElement.scrollTop > 20
