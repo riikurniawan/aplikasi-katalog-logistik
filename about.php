@@ -7,7 +7,7 @@
     <title>DiAnterin | Your shipment is our priority</title>
 
     <!-- bootstrap css -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- custom css -->
     <link rel="stylesheet" href="/assets/css/style.css" />
@@ -19,9 +19,6 @@
     <link rel="icon" href="/assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
     <link rel="icon" href="/assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
 
-    <!-- typerjs cdn links -->
-    <script async src="/assets/js/typer.js"></script>
-
     <!-- custom scripts -->
     <script src="/assets/js/scripts.js"></script>
 
@@ -29,7 +26,8 @@
         body {
             padding-top: 50px;
         }
-        body > .layout {
+
+        body>.layout {
             padding-bottom: 50px;
         }
     </style>
@@ -82,7 +80,7 @@
     <?php include './components/footer.php' ?>
 
     <!-- bootstrap js minified -->
-    <script src=" assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
