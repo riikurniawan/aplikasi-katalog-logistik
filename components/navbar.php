@@ -1,6 +1,6 @@
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="navbar">
             <div class="container-fluid">
-                <a class="navbar-brand company-title" href="#">
+                <a class="navbar-brand company-title" href="/index.php">
                     <img src="assets/images/logo-dianterin.png" alt="Logo" width="50" height="34" class="d-inline-block align-text-top" />
                     diAnterin
                 </a>
@@ -19,9 +19,7 @@
                             <a class="nav-link" href="/about.php">About Us</a>
                         </li>
                     </ul>
-                    <li class="nav-item mb-2">
-                        <a class="btn btn-warning" href="/admin/index.php">Login</a>
-                    </li>
+                    <a class="btn btn-warning" href="/admin/index.php">Login</a>
                 </div>
             </div>
         </nav>
