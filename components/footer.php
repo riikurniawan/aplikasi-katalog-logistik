@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12 col-md-3 mb-3">
                 <a class="text-decoration-none company-title text-white" href="#">
-                    <img src="assets/images/logo-dianterin.png" alt="Logo" width="50" height="34" class="d-inline-block align-text-top" />
+                    <img src="/assets/images/logo-dianterin.png" alt="Logo" width="50" height="34" class="d-inline-block align-text-top" />
                     diAnterin
                 </a>
                 <p class="text-white mt-3">
@@ -27,7 +27,7 @@
                     <span class=" fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, ut?</span>
                 </div>
                 <div class="d-flex align-items-center text-white fs-3 mb-3">
-                    <i class="align-items-center fas fa-phone  me-3"></i>
+                    <i class="align-items-center fas fa-phone me-3"></i>
                     <span class="fs-6">08123456789</span>
                 </div>
                 <div class="d-flex align-items-center text-white fs-3 mb-3">
@@ -52,7 +52,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <p class="text-white">&copy; 2023 diAnterin</p>
+            <p class="text-white">&copy; 2023 diAnterin team</p>
         </div>
     </div>
 </footer>
