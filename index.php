@@ -1,3 +1,5 @@
+<?php include 'components/baseurl.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,23 +9,23 @@
   <title>DiAnterin | Your shipment is our priority</title>
 
   <!-- bootstrap css -->
-  <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 
   <!-- custom css -->
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 
   <!-- fontawesome icons -->
-  <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
 
   <!-- favicon -->
-  <link rel="icon" href="/assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
-  <link rel="icon" href="/assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
+  <link rel="icon" href="assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
+  <link rel="icon" href="assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
 
   <!-- typerjs cdn links -->
-  <script async src="/assets/js/typer.js"></script>
+  <script async src="assets/js/typer.js"></script>
 
   <!-- custom scripts -->
-  <script src="/assets/js/scripts.js"></script>
+  <script src="assets/js/scripts.js"></script>
 </head>
 
 <body>
@@ -56,7 +58,7 @@
   <?php include './components/footer.php' ?>
 
   <!-- bootstrap js minified -->
-  <script src="/assets/js/bootstrap.bundle.min.js">
+  <script src="assets/js/bootstrap.bundle.min.js">
   </script>
   <script>
     // trigger navbar changing background to dark when scrolling page

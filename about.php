@@ -1,3 +1,5 @@
+<?php include './components/baseurl.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,20 +9,20 @@
     <title>DiAnterin | Your shipment is our priority</title>
 
     <!-- bootstrap css -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- custom css -->
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css" />
 
     <!-- fontawesome icons -->
-    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>assets/fontawesome/css/all.min.css" />
 
     <!-- favicon -->
-    <link rel="icon" href="/assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
-    <link rel="icon" href="/assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
+    <link rel="icon" href="<?= base_url() ?>assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
+    <link rel="icon" href="<?= base_url() ?>assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
 
     <!-- custom scripts -->
-    <script src="/assets/js/scripts.js"></script>
+    <script src="<?= base_url() ?>assets/js/scripts.js"></script>
 
     <style>
         body {
@@ -47,11 +49,11 @@
                             About Us
                         </h3>
                         <div class="col-md-6 col-lg-5 d-flex justify-content-center">
-                            <img src="assets/images/company.jpg" alt="company images" class="img-fluid rounded" />
+                            <img src="<?= base_url() ?>assets/images/company.jpg" alt="company images" class="img-fluid rounded" />
                         </div>
                         <div class="col-md-6 col-lg-7 d-flex align-items-center flex-column my-3">
                             <div class="d-flex align-items-center">
-                                <img src="assets/images/logo.png" alt="company logo" height="80" />
+                                <img src="<?= base_url() ?>assets/images/logo.png" alt="company logo" height="80" />
                                 <h4 class="card-title ms-2 company-title">diAnterin</h4>
                             </div>
                             <div class="my-3">
@@ -80,7 +82,7 @@
     <?php include './components/footer.php' ?>
 
     <!-- bootstrap js minified -->
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url() ?>assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

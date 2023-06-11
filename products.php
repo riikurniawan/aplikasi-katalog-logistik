@@ -1,3 +1,5 @@
+<?php include './components/baseurl.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,20 +10,20 @@
     <title>DiAnterin | Product</title>
 
     <!-- bootstrap css -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- custom css -->
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css" />
 
     <!-- fontawesome icons -->
-    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>assets/fontawesome/css/all.min.css" />
 
     <!-- favicon -->
-    <link rel="icon" href="/assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
-    <link rel="icon" href="/assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
+    <link rel="icon" href="<?= base_url() ?>assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
+    <link rel="icon" href="<?= base_url() ?>assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
 
     <!-- custom scripts -->
-    <script src="/assets/js/scripts.js"></script>
+    <script src="<?= base_url() ?>assets/js/scripts.js"></script>
 
     <style>
         body {
@@ -77,7 +79,7 @@
                     <div class="row px-3">
                         <div class="col-md-6 col-lg-4 mb-3 px-3">
                             <div class="card">
-                                <img src="/assets/images/CUBE.png" class="card-img-top mx-auto" style="width:200px" alt="..." />
+                                <img src="<?= base_url() ?>assets/images/CUBE.png" class="card-img-top mx-auto" style="width:200px" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold text-center">CUBE</h5>
                                     <div class="text-truncate-container mb-3">
@@ -91,7 +93,7 @@
                         </div>
                         <div class="col-md-6 col-lg-4 mb-3 px-3">
                             <div class="card">
-                                <img src="/assets/images/APEX.png" class="card-img-top mx-auto" style="width:200px">
+                                <img src="<?= base_url() ?>assets/images/APEX.png" class="card-img-top mx-auto" style="width:200px">
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold text-center">APEX</h5>
                                     <div class="text-truncate-container mb-3">
@@ -105,7 +107,7 @@
                         </div>
                         <div class="col-md-6 col-lg-4 mb-3 px-3">
                             <div class="card">
-                                <img src="/assets/images/CUBE.png" class="card-img-top mx-auto" style="width:200px" alt="..." />
+                                <img src="<?= base_url() ?>assets/images/CUBE.png" class="card-img-top mx-auto" style="width:200px" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold text-center">CUBE</h5>
                                     <div class="text-truncate-container mb-3">
@@ -119,7 +121,7 @@
                         </div>
                         <div class="col-md-6 col-lg-4 mb-3 px-3">
                             <div class="card">
-                                <img src="/assets/images/APEX.png" class="card-img-top mx-auto" style="width:200px">
+                                <img src="<?= base_url() ?>assets/images/APEX.png" class="card-img-top mx-auto" style="width:200px">
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold text-center">APEX</h5>
                                     <div class="text-truncate-container mb-3">
@@ -133,7 +135,7 @@
                         </div>
                         <div class="col-md-6 col-lg-4 mb-3 px-3">
                             <div class="card">
-                                <img src="/assets/images/CUBE.png" class="card-img-top mx-auto" style="width:200px" alt="..." />
+                                <img src="<?= base_url() ?>assets/images/CUBE.png" class="card-img-top mx-auto" style="width:200px" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold text-center">CUBE</h5>
                                     <div class="text-truncate-container mb-3">
@@ -147,7 +149,7 @@
                         </div>
                         <div class="col-md-6 col-lg-4 mb-3 px-3">
                             <div class="card">
-                                <img src="/assets/images/APEX.png" class="card-img-top mx-auto" style="width:200px">
+                                <img src="<?= base_url() ?>assets/images/APEX.png" class="card-img-top mx-auto" style="width:200px">
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold text-center">APEX</h5>
                                     <div class="text-truncate-container mb-3">
@@ -169,7 +171,7 @@
     <?php include './components/footer.php' ?>
 
     <!-- bootstrap js minified -->
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url() ?>assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

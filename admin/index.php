@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['logged_in'])) {
-    header("Location: /admin/home.php");
+    header("Location: ./home.php");
 }
 ?>
 
@@ -16,20 +16,20 @@ if (isset($_SESSION['logged_in'])) {
     <title>DiAnterin | Login</title>
 
     <!-- bootstrap css -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- custom css -->
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
 
     <!-- fontawesome icons -->
-    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css" />
 
     <!-- favicon -->
-    <link rel="icon" href="/assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
-    <link rel="icon" href="/assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
+    <link rel="icon" href="../assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
+    <link rel="icon" href="../assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
 
     <!-- custom scripts -->
-    <script src="/assets/js/scripts.js"></script>
+    <script src="../assets/js/scripts.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
@@ -95,10 +95,10 @@ if (isset($_SESSION['logged_in'])) {
     </div>
 
     <!-- bootstrap js minified -->
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
     <!-- jquery cdn links -->
-    <script src="/assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
     <!-- sweetalert2 cdn links -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 

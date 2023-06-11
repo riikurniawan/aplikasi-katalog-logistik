@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12 col-md-3 mb-3">
                 <a class="text-decoration-none company-title text-white" href="#">
-                    <img src="/assets/images/logo-dianterin.png" alt="Logo" width="50" height="34" class="d-inline-block align-text-top" />
+                    <img src="<?= base_url() ?>assets/images/logo-dianterin.png" alt="Logo" width="50" height="34" class="d-inline-block align-text-top" />
                     diAnterin
                 </a>
                 <p class="text-white mt-3">
@@ -15,9 +15,9 @@
                     Links
                 </h5>
                 <div class="d-flex justify-content-start flex-column">
-                    <a class="text-decoration-none pb-2 text-white-50" href="#">Home</a>
-                    <a class="text-decoration-none pb-2 text-white-50" href="#">Product</a>
-                    <a class="text-decoration-none pb-2 text-white-50" href="#">About Us</a>
+                    <a class="text-decoration-none pb-2 text-white-50" href="<?= base_url() ?>index.php">Home</a>
+                    <a class="text-decoration-none pb-2 text-white-50" href="<?= base_url() ?>products.php">Product</a>
+                    <a class="text-decoration-none pb-2 text-white-50" href="<?= base_url() ?>about.php">About Us</a>
                 </div>
             </div>
             <div class="col-12 col-md-4 mb-3">

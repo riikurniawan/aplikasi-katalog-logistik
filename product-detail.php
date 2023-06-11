@@ -1,6 +1,7 @@
+<?php include './components/baseurl.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 
 <head>
     <meta charset="utf-8" />
@@ -8,20 +9,20 @@
     <title>DiAnterin | Product Detail</title>
 
     <!-- bootstrap css -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- custom css -->
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css" />
 
     <!-- fontawesome icons -->
-    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>assets/fontawesome/css/all.min.css" />
 
     <!-- favicon -->
-    <link rel="icon" href="/assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
-    <link rel="icon" href="/assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
+    <link rel="icon" href="<?= base_url() ?>assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
+    <link rel="icon" href="<?= base_url() ?>assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
 
     <!-- custom scripts -->
-    <script src="/assets/js/scripts.js"></script>
+    <script src="<?= base_url() ?>assets/js/scripts.js"></script>
 
     <style>
         body {
@@ -65,13 +66,13 @@
                             <div id="carouselProductControls" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner rounded">
                                     <div class="carousel-item active">
-                                        <img src="/assets/images/jumbo.jpg" class="d-block w-100" alt="...">
+                                        <img src="<?= base_url() ?>assets/images/jumbo.jpg" class="d-block w-100" alt="...">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="/assets/images/jumbo.jpg" class="d-block w-100" alt="...">
+                                        <img src="<?= base_url() ?>assets/images/jumbo.jpg" class="d-block w-100" alt="...">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="/assets/images/jumbo.jpg" class="d-block w-100" alt="...">
+                                        <img src="<?= base_url() ?>assets/images/jumbo.jpg" class="d-block w-100" alt="...">
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselProductControls" data-bs-slide="prev">
@@ -114,7 +115,7 @@
     <?php include './components/footer.php' ?>
 
     <!-- bootstrap js minified -->
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url() ?>assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
