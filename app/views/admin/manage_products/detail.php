@@ -1,6 +1,6 @@
 <?php if (!isset($_SESSION['logged_in'])) header('Location: ' . BASEURL); ?>
 
-<main id="app">
+<main class="layout" id="app">
     <div class="container mt-5">
         <div class="row">
             <h3 class="card-title text-center section-title fw-bold">
@@ -14,25 +14,17 @@
         </div>
         <div class="row p-3" v-if="Object.keys(product).length">
             <div class="col-lg-6 mb-3">
-                <div id="carouselProductControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner rounded">
-                        <div class="carousel-item active">
-                            <img :src="'<?= BASEURL ?>assets/images/products/' + product.gambar" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img :src="'<?= BASEURL ?>assets/images/products/' + product.gambar" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img :src="'<?= BASEURL ?>assets/images/products/' + product.gambar" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselProductControls" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselProductControls" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    </button>
-                </div>
+                    <swiper-container class="mySwiper rounded" pagination="true" pagination-clickable="true" navigation="true" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false" effect="fade" loop="true">
+                        <swiper-slide>
+                            <img :src="'<?= BASEURL ?>assets/images/products/' + product.gambar" class="d-block w-100" :alt="product.gambar">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img :src="'<?= BASEURL ?>assets/images/products/' + product.gambar" class="d-block w-100" :alt="product.gambar">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img :src="'<?= BASEURL ?>assets/images/products/' + product.gambar" class="d-block w-100" :alt="product.gambar">
+                        </swiper-slide>
+                    </swiper-container>
             </div>
             <div class="col-lg-6">
                 <h3 class="card-title text-center section-title mb-3 fw-bold">
@@ -87,12 +79,35 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
+
+    swiper-container {
+        max-height: 400px;
+        width: 100%;
+    }
+
+    swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 </style>
 
 <!-- vuejs cdn links -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <!-- axios cdn links -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- swiperjs cdn links -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 <script>
     const app = new Vue({
         el: "#app",

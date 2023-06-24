@@ -3,7 +3,8 @@ class Profile extends Controller
 {
     public function index()
     {
-        $this->view('templates/header');
+        $data['title'] = "My Profile";
+        $this->view('templates/header', $data);
         $this->view('templates/navbar-admin');
         $this->view('admin/profile/index');
         $this->view('templates/footer');

@@ -4,18 +4,21 @@
         <div class="row mb-4 mx-3">
             <label class="col col-sm-2 col-md-1 col-form-label fw-bold">Filter <i class="fas fa-filter text-warning"></i></label>
             <div class="col-5 col-sm-5 col-lg-3">
-                <select name="delivery_area" id="delivery_area" class="form-select">
+                <select v-model="filter_delivery_area" id="filter_delivery_area" class="form-select" v-if="Object.keys(delivery_areas).length" v-on:change=filterProducts>
+                    <option value="" selected>Delivery Area</option>
+                    <option :value="delivery_area.jangkauan_pengiriman" v-for="(delivery_area,idx) in delivery_areas" :key="idx">{{ delivery_area.jangkauan_pengiriman }}</option>
+                </select>
+                <select v-model="filter_delivery_area" id="filter_delivery_area" class="form-select" v-else>
                     <option value="" selected disabled>Delivery Area</option>
-                    <option value="">Batam</option>
-                    <option value="">Tj. Pinang</option>
                 </select>
             </div>
             <div class="col-4 col-sm-5 col-lg-3">
-                <select name="weight" id="weight" class="form-select">
+                <select v-model="filter_weight" id="filter_weight" class="form-select" v-if="Object.keys(weights).length" v-on:change=filterProducts>
+                    <option value="" selected>Weight</option>
+                    <option :value="weight.bobot_pengiriman" v-for="(weight,idx) in weights" :key="idx">{{ weight.bobot_pengiriman }}</option>
+                </select>
+                <select v-model="filter_weight" id="filter_weight" class="form-select" v-else>
                     <option value="" selected disabled>Weight</option>
-                    <option value="">
-                        < 5Kg</option>
-                    <option value="">> 10Kg</option>
                 </select>
             </div>
         </div>
@@ -34,6 +37,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row px-3" v-else>
+            <p class="text-center">No Product found</p>
         </div>
     </div>
 </main>
@@ -71,6 +77,10 @@
         el: "#app",
         data: {
             products: '',
+            weights: '',
+            delivery_areas: '',
+            filter_delivery_area: '',
+            filter_weight: '',
         },
         methods: {
             getProducts() {
@@ -79,9 +89,53 @@
                         app.products = response.data.data
                     })
             },
+            getWeights() {
+                axios.get("<?= BASEURL ?>products/getWeights")
+                    .then(function(response) {
+                        app.weights = response.data.data
+                    })
+            },
+            getDeliveryAreas() {
+                axios.get("<?= BASEURL ?>products/getDeliveryAreas")
+                    .then(function(response) {
+                        app.delivery_areas = response.data.data
+                    })
+            },
+            filterProducts: function(event) {
+                if (event.target.id === 'filter_delivery_area') {
+                    this.filter_delivery_area = event.target.value
+                } else if (event.target.id === 'filter_weight') {
+                    this.filter_weight = event.target.value
+                }
+
+                if (this.filter_delivery_area != "" || this.filter_weight != "") {
+                    let data = {
+                        delivery_area: this.filter_delivery_area,
+                        weight: this.filter_weight
+                    }
+                    axios.post('<?= BASEURL ?>products/filterProductsBy', data)
+                        .then(function(response) {
+                            if (response.data.data.length != 0) {
+                                app.products = response.data.data
+                            } else {
+                                app.products = ''
+                            }
+                        }).catch(function(error) {
+                            if (error.response) {
+                                // The request was made and the server responded with a status code
+                                // that falls out of the range of 2xx
+                                console.log(error.response.data);
+                                console.log(error.response.status);
+                                console.log(error.response.headers);
+                            }
+                        })
+                } else {
+                    this.getProducts()
+                }
+            },
         },
         mounted: function() {
-            this.getProducts()
+            this.getProducts(), this.getDeliveryAreas(), this.getWeights()
         }
     })
 </script>

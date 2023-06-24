@@ -21,8 +21,8 @@ if (isset($_SESSION['logged_in'])) header('Location: ' . BASEURL . 'admin/dashbo
     <link rel="stylesheet" href="<?= BASEURL ?>assets/fontawesome/css/all.min.css" />
 
     <!-- favicon -->
-    <link rel="icon" href="<?= BASEURL ?>assets/images/logo.png" type="image/x-icon" id="light-scheme-icon">
-    <link rel="icon" href="<?= BASEURL ?>assets/images/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
+    <link rel="icon" href="<?= BASEURL ?>assets/images/logo/logo.png" type="image/x-icon" id="light-scheme-icon">
+    <link rel="icon" href="<?= BASEURL ?>assets/images/logo/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
 
     <!-- custom scripts -->
     <script src="<?= BASEURL ?>assets/js/scripts.js"></script>

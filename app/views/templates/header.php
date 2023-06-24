@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>DiAnterin | Your shipment is our priority</title>
+    <title>DiAnterin | <?= $data['title'] ?></title>
 
     <!-- bootstrap css -->
     <link href="<?= BASEURL ?>assets/css/bootstrap.min.css" rel="stylesheet" />

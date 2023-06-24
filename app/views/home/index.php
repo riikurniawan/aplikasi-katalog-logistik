@@ -8,10 +8,10 @@
             <span class="cursor" data-owner="main"></span>
         </h3>
         <div class="d-flex justify-content-around flex-column d-sm-flex flex-md-row">
-            <button class="btn btn-outline-warning mb-3 mb-md-0">
+            <a href="/about" class="btn btn-outline-warning mb-3 mb-md-0">
                 Get Started
-            </button>
-            <button class="btn btn-warning">Discover More</button>
+            </a>
+            <a href="/products" class="btn btn-warning">Discover More</a>
         </div>
     </div>
 </main>

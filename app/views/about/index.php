@@ -14,17 +14,11 @@
                 </div>
                 <div class="my-3">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Distinctio, explicabo adipisci magnam quibusdam atque,
-                        libero facere perspiciatis iste expedita iure asperiores!
-                        Quia sint culpa possimus inventore quaerat eos at aliquam
-                        vero repudiandae sit, laboriosam iusto harum, temporibus
-                        sequi fugit autem tempora laborum veniam illum corrupti,
-                        earum eius fugiat ipsa. At qui adipisci ratione, reiciendis
-                        nam quia obcaecati explicabo quos atque pariatur, a
-                        distinctio. Officia, rem amet. Amet beatae maxime minima
-                        laboriosam fuga obcaecati fugit cupiditate repudiandae,
-                        doloribus ad animi hic?
+                        diAnterin is a product catalog application developed by our logistics company. The application aims to facilitate customers in exploring various available products and utilizing the logistics services we provide.
+
+                        We recognize that in today's competitive business world, fast and efficient delivery of goods is crucial. Therefore, diAnterin is here to provide reliable logistics solutions for our customers.
+
+                        Our commitment is to provide the best and professional service to each customer. We have a trained and dedicated team that manages the entire process of shipping goods from start to finish. With extensive experience and knowledge in the field of logistics, we are able to customize solutions that meet your business needs.
                     </p>
                 </div>
             </div>

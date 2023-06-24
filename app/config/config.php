@@ -7,7 +7,8 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(dirname(__DIR__, 2));
 $dotenv->load();
 
-define('BASEURL', 'http://localhost/aplikasi-katalog-logistik/public/');
+// define('BASEURL', 'http://localhost/aplikasi-katalog-logistik/public/');
+define('BASEURL', 'http://dianterin.ddns.net/');
 
 // set DB const
 define('DB_HOST', $_ENV["DB_HOST"]);

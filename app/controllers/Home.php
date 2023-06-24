@@ -4,7 +4,8 @@ class Home extends Controller
 {
     public function index()
     {
-        $this->view('templates/header');
+        $data['title'] = "Your shipment is our priority";
+        $this->view('templates/header', $data);
         $this->view('templates/navbar');
         $this->view('home/index');
         $this->view('templates/footer');
