@@ -20,7 +20,7 @@
     <link rel="icon" href="<?= BASEURL ?>assets/images/logo/logo-dianterin.png" type="image/x-icon" id="dark-scheme-icon">
 
     <!-- typerjs cdn links -->
-    <script async src="<?= BASEURL ?>assets/js/typer.js"></script>
+    <script async src="<?= BASEURL ?>assets/js/typer.js" defer></script>
 
     <!-- custom scripts -->
     <script src="<?= BASEURL ?>assets/js/scripts.js"></script>

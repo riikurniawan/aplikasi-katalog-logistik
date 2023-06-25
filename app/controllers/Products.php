@@ -35,6 +35,18 @@ class Products extends Controller
         echo json_encode($product);
     }
 
+    public function getProductImages($id)
+    {
+        header('Access-Control-Allow-Origin: *');
+        header("Access-Control-Allow-Methods: GET");
+        header('Content-Type: application/json');
+        header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Methods");
+
+        http_response_code(200);
+        $images = $this->model('Product_model')->getProductDetailImages($id);
+        echo json_encode($images);
+    }
+
     public function getDeliveryAreas()
     {
         header('Access-Control-Allow-Origin: *');

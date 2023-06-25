@@ -79,7 +79,6 @@ class Product_model extends Database
         $stmt->execute();
         $numRow = $stmt->rowCount();
         if ($numRow > 0) {
-
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 extract($row);
 
@@ -103,6 +102,20 @@ class Product_model extends Database
         }
     }
 
+    public function getProductDetailImages($id)
+    {
+        $stmt = $this->db()->prepare("SELECT foto.file_foto FROM " . $this->table . " INNER JOIN foto ON produk.id_produk = foto.id_produk WHERE produk.id_produk = :id");
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        $numRow = $stmt->rowCount();
+        if ($numRow > 0) {
+            $out['data'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $out;
+        } else {
+            $out['data'] = [];
+            return $out;
+        }
+    }
     public function groupByWeight()
     {
         $stmt = $this->db()->prepare("SELECT `bobot_pengiriman` FROM " . $this->table . " GROUP BY `bobot_pengiriman`");
@@ -449,29 +462,23 @@ class Product_model extends Database
 
         // execute query
         if ($stmt->execute($data)) {
-            $out = [
-                'message' => 'New product added',
-            ];
-            return $out;
+            return true;
         } else {
-            $out = [
-                'message' => 'Oops! something wrong',
-                'error' => true
-            ];
-            return $out;
+            return false;
         }
     }
 
-    public function update($id, $data, $img = null)
+    public function update($id, $data)
     {
-        if ($img == null) {
+        if (array_key_exists('gambar', $data)) {
             $stmt = $this->db()->prepare("UPDATE " . $this->table .
-                " SET nama = :nama, deskripsi = :deskripsi, harga = :harga, status_publikasi = :status_publikasi, bobot_pengiriman = :bobot_pengiriman, jangkauan_pengiriman = :jangkauan_pengiriman, lama_pengiriman = :lama_pengiriman " .
+                " SET nama = :nama, deskripsi = :deskripsi, harga = :harga, gambar = :gambar, status_publikasi = :status_publikasi, bobot_pengiriman = :bobot_pengiriman, jangkauan_pengiriman = :jangkauan_pengiriman, lama_pengiriman = :lama_pengiriman " .
                 " WHERE id_produk = :id");
             $stmt->bindValue(':id', $id);
             $stmt->bindValue(':nama', $data['nama']);
             $stmt->bindValue(':deskripsi', $data['deskripsi']);
             $stmt->bindValue(':harga', $data['harga']);
+            $stmt->bindValue(':gambar', $data['gambar']);
             $stmt->bindValue(':status_publikasi', $data['status_publikasi']);
             $stmt->bindValue(':bobot_pengiriman', $data['bobot_pengiriman']);
             $stmt->bindValue(':jangkauan_pengiriman', $data['jangkauan_pengiriman']);
@@ -486,13 +493,12 @@ class Product_model extends Database
             }
         } else {
             $stmt = $this->db()->prepare("UPDATE " . $this->table .
-                " SET nama = :nama, deskripsi = :deskripsi, harga = :harga, gambar = :gambar, status_publikasi = :status_publikasi, bobot_pengiriman = :bobot_pengiriman, jangkauan_pengiriman = :jangkauan_pengiriman, lama_pengiriman = :lama_pengiriman " .
+                " SET nama = :nama, deskripsi = :deskripsi, harga = :harga, status_publikasi = :status_publikasi, bobot_pengiriman = :bobot_pengiriman, jangkauan_pengiriman = :jangkauan_pengiriman, lama_pengiriman = :lama_pengiriman " .
                 " WHERE id_produk = :id");
             $stmt->bindValue(':id', $id);
             $stmt->bindValue(':nama', $data['nama']);
             $stmt->bindValue(':deskripsi', $data['deskripsi']);
             $stmt->bindValue(':harga', $data['harga']);
-            $stmt->bindValue(':gambar', $img);
             $stmt->bindValue(':status_publikasi', $data['status_publikasi']);
             $stmt->bindValue(':bobot_pengiriman', $data['bobot_pengiriman']);
             $stmt->bindValue(':jangkauan_pengiriman', $data['jangkauan_pengiriman']);

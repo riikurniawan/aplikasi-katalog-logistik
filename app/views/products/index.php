@@ -2,8 +2,8 @@
     <div class="container mt-5">
         <h3 class="card-title text-center section-title mb-3 fw-bold"> Product</h3>
         <div class="row mb-4 mx-3">
-            <label class="col col-sm-2 col-md-1 col-form-label fw-bold">Filter <i class="fas fa-filter text-warning"></i></label>
-            <div class="col-5 col-sm-5 col-lg-3">
+            <label class="col-4 col-sm-2 col-md-4  col-form-label fw-bold">Filter <i class="fas fa-filter text-warning"></i></label>
+            <div class="col-8 col-sm-4 col-md-4 col-lg-3 mb-3">
                 <select v-model="filter_delivery_area" id="filter_delivery_area" class="form-select" v-if="Object.keys(delivery_areas).length" v-on:change=filterProducts>
                     <option value="" selected>Delivery Area</option>
                     <option :value="delivery_area.jangkauan_pengiriman" v-for="(delivery_area,idx) in delivery_areas" :key="idx">{{ delivery_area.jangkauan_pengiriman }}</option>
@@ -12,7 +12,7 @@
                     <option value="" selected disabled>Delivery Area</option>
                 </select>
             </div>
-            <div class="col-4 col-sm-5 col-lg-3">
+            <div class="col col-sm-5 col-md-4 col-lg-3">
                 <select v-model="filter_weight" id="filter_weight" class="form-select" v-if="Object.keys(weights).length" v-on:change=filterProducts>
                     <option value="" selected>Weight</option>
                     <option :value="weight.bobot_pengiriman" v-for="(weight,idx) in weights" :key="idx">{{ weight.bobot_pengiriman }}</option>

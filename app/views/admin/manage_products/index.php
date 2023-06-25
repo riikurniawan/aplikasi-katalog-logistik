@@ -41,16 +41,16 @@
                             <i class="fas fa-ellipsis-v"></i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="#" v-on:click="editModal(idx)"><i class="fas fa-pencil-alt"></i> Edit</a></li>
+                            <li><a class="dropdown-item" v-on:click="editModal(idx)"><i class="fas fa-pencil-alt"></i> Edit</a></li>
                             <li>
-                                <a class="dropdown-item" href="#" v-on:click="updatePublishStatus(product.id_produk, product.status_publikasi)" v-if="product.status_publikasi == 0">
+                                <a class="dropdown-item" v-on:click="updatePublishStatus(product.id_produk, product.status_publikasi)" v-if="product.status_publikasi == 0">
                                     <i class="fas fa-check-circle"></i> Published
                                 </a>
-                                <a class="dropdown-item" href="#" v-on:click="updatePublishStatus(product.id_produk, product.status_publikasi)" v-else>
+                                <a class="dropdown-item" v-on:click="updatePublishStatus(product.id_produk, product.status_publikasi)" v-else>
                                     <i class="fas fa-archive"></i> Unlisted
                                 </a>
                             </li>
-                            <li><a class="dropdown-item bg-danger" href="#" v-on:click="deleteProduct(product.id_produk, product.nama)"><i class="fas fa-trash"></i> Delete</a></li>
+                            <li><a class="dropdown-item bg-danger" v-on:click="deleteProduct(product.id_produk, product.nama)"><i class="fas fa-trash"></i> Delete</a></li>
                         </ul>
                     </div>
                     <img :src="'<?= BASEURL ?>assets/images/products/' + product.gambar" class="card-img-top mx-auto" style="width:200px" :alt="product.gambar" />
@@ -84,7 +84,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="productModaltitle">Add Product</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" v-on:click="clearForm" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-danger" v-if="errorMessage">
@@ -116,7 +116,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="product_img" class="form-label">Product Logo<span class="text-danger">*</span></label>
-                        <input type="file" accept="image/jpeg, image/png" id="product_img" v-on:change="fileChange" class="form-control">
+                        <input type="file" accept="image/jpeg, image/png" ref="product_img" id="product_img" v-on:change="fileChange" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="product_detail_img" class="form-label">Product image<span class="text-danger">*</span></label>
@@ -130,7 +130,7 @@
                             <div class="box-preview" ref="box_preview">
                             </div>
                         </div>
-
+                        <div id='product_detail_img_help' class='form-text'>Maximum file upload 3 images</div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Publish?</label>
@@ -318,11 +318,18 @@
                     if (this.files.every(function(e) {
                             return (e.name != file[i].name);
                         })) {
-                        this.files.push(file[i]);
+                        if (this.files.length == 3) {
+                            Swal.fire({
+                                title: "maximum file upload 3 images",
+                                icon: 'warning'
+                            })
+                        } else {
+                            this.files.push(file[i]);
+                        }
                     }
                 }
-
                 this.showImages();
+                this.errorMessage = ''
             },
             showImages() {
                 let images = ''
@@ -361,20 +368,31 @@
                     if (this.files.every(function(e) {
                             return (e.name !== file[i].name);
                         })) {
-                        this.files.push(file[i]);
+                        if (this.files.length == 3) {
+                            Swal.fire({
+                                title: "maximum file upload 3 images",
+                                icon: 'warning'
+                            })
+                        } else {
+                            this.files.push(file[i]);
+                        }
                     }
                 }
 
                 this.showImages();
             },
-            addModal() {
-                // buka modal
-                $('#productsModal').modal('toggle');
-
+            clearForm() {
                 // ubah isi modal
                 $('#productsModal').find('h5#productModaltitle').text('Add Product');
                 $('#productsModal').find('.modal-footer button[type="submit"]').text("Submit")
-                $('#productsModal').find('label[for="product_img"]').html('Product image <span class="text-danger">*</span>')
+                $('#productsModal').find('label[for="product_img"]').html('Product logo <span class="text-danger">*</span>')
+
+                $("#product_img_help").remove();
+                $("#product_detail_img_help").text("Maximum file upload 3 images.")
+            },
+            addModal() {
+                // buka modal
+                $('#productsModal').modal('toggle');
 
                 app.errorMessage = ''
                 app.product_name = ''
@@ -396,6 +414,9 @@
                 $('#productsModal').find('h5#productModaltitle').text('Edit Product');
                 $('#productsModal').find('.modal-footer button[type="submit"]').text("Update")
                 $('#productsModal').find('label[for="product_img"]').html("Product image")
+
+                $("#product_img").after("<div id='product_img_help' class='form-text'>Old image will be override if you upload a new image.</div>")
+                $("#product_detail_img_help").text("Old image will be override if you upload some new image.")
 
                 // hapus semua isi form
                 app.errorMessage = ''
@@ -568,58 +589,7 @@
             },
             submitForm(action, id) {
                 if (action == 'add') {
-                    let addProductForm = new FormData()
-                    this.files.forEach((val, idx) => {
-                        addProductForm.append(`product_detail_image[]`, val)
-                    })
-
-                    axios.post('<?= BASEURL ?>admin/manage_products/create', addProductForm, {
-                            headers: {
-                                'Content-Type': 'multipart/form-data'
-                            }
-                        })
-                        .then(function(response) {
-                            console.log(response.data)
-                            // if (response.data.error) {
-                            //     app.errorMessage = response.data.message
-                            // } else {
-                            //     app.errorMessage = ''
-                            //     app.product_name = ''
-                            //     app.product_desc = ''
-                            //     app.product_price = ''
-                            //     app.product_weight = ''
-                            //     app.delivery_area = ''
-                            //     app.delivery_estimate = ''
-                            //     app.product_img = null
-                            //     app.product_publish = false
-                            //     document.getElementById('product_img').value = "";
-                            //     $('#productsModal').modal('toggle');
-                            //     Swal.fire({
-                            //         icon: 'success',
-                            //         title: response.data.message,
-                            //     })
-                            //     app.getProducts()
-                            // }
-                        })
-                        .catch(function(error) {
-                            if (error.response) {
-                                // The request was made and the server responded with a status code
-                                // that falls out of the range of 2xx
-                                Swal.fire({
-                                    title: error.response.data.message,
-                                    icon: 'warning'
-                                })
-                            } else if (error.request) {
-                                // The request was made but no response was received
-                                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                                // http.ClientRequest in node.js
-                                console.log(error.request);
-                            } else {
-                                // Something happened in setting up the request that triggered an Error
-                                console.log('Error', error.message);
-                            }
-                        });
-                    // this.addForm()
+                    this.addForm()
                 } else if (action == 'edit') {
                     this.editForm(id)
                 }
@@ -638,6 +608,8 @@
                 } else if (this.delivery_estimate == "") {
                     this.errorMessage = 'Delivery estimate field is required'
                 } else if (this.product_img == null) {
+                    this.errorMessage = 'Product logo field is required'
+                } else if (Array.isArray(this.files) && this.files.length < 1) {
                     this.errorMessage = 'Product image field is required'
                 } else {
                     this.errorMessage = ''
@@ -652,6 +624,9 @@
                     addProductForm.append("product_img", this.product_img)
                     addProductForm.append("product_publish", this.product_publish)
 
+                    this.files.forEach((val, idx) => {
+                        addProductForm.append(`product_detail_image[]`, val)
+                    })
 
                     axios.post('<?= BASEURL ?>admin/manage_products/create', addProductForm, {
                             headers: {
@@ -671,13 +646,16 @@
                                 app.delivery_estimate = ''
                                 app.product_img = null
                                 app.product_publish = false
-                                document.getElementById('product_img').value = "";
+                                app.files = []
+                                app.showImages()
+                                app.$refs.product_img.value = ""
                                 $('#productsModal').modal('toggle');
                                 Swal.fire({
                                     icon: 'success',
                                     title: response.data.message,
                                 })
                                 app.getProducts()
+                                app.clearForm()
                             }
                         })
                         .catch(function(error) {
@@ -688,6 +666,8 @@
                                     title: error.response.data.message,
                                     icon: 'warning'
                                 })
+                            } else if (error.response.data.errors) {
+                                console.log(error.response.data.errors)
                             } else if (error.request) {
                                 // The request was made but no response was received
                                 // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
@@ -717,13 +697,21 @@
                     this.errorMessage = ''
                     let updateProductForm = new FormData()
 
+                    if ((Array.isArray(this.files) && this.files.length > 0)) {
+                        this.files.forEach((val, idx) => {
+                            updateProductForm.append(`product_detail_image[]`, val)
+                        })
+                    }
+                    if (this.product_img !== null) {
+                        updateProductForm.append("product_img", this.product_img)
+                    }
+
                     updateProductForm.append("product_name", this.product_name)
                     updateProductForm.append("product_desc", this.product_desc)
                     updateProductForm.append("product_price", this.product_price)
                     updateProductForm.append("product_weight", this.product_weight)
                     updateProductForm.append("delivery_area", this.delivery_area)
                     updateProductForm.append("delivery_estimate", this.delivery_estimate)
-                    updateProductForm.append("product_img", this.product_img)
                     updateProductForm.append("product_publish", this.product_publish)
 
                     axios.post(`<?= BASEURL ?>admin/manage_products/update/${this.productID}`, updateProductForm, {
@@ -746,8 +734,11 @@
                                 app.product_img = null
                                 app.product_publish = false
                                 app.productID = ''
-                                document.getElementById('product_img').value = "";
                                 app.getProducts()
+                                app.clearForm()
+                                app.files = []
+                                app.showImages()
+                                app.$refs.product_img.value = ""
                                 $('#productsModal').modal('toggle');
                                 Swal.fire({
                                     icon: 'success',

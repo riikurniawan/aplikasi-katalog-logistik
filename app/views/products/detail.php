@@ -11,16 +11,10 @@
             </div>
         </div>
         <div class="row p-3" v-if="Object.keys(product).length">
-            <div class="col-lg-6 mb-3">
+            <div class="col-lg-6 mb-3" v-if="Object.keys(productImages).length">
                 <swiper-container class="mySwiper rounded" pagination="true" pagination-clickable="true" navigation="true" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false" effect="fade" loop="true">
-                    <swiper-slide>
-                        <img :src="'<?= BASEURL ?>assets/images/products/' + product.gambar" class="d-block w-100" :alt="product.gambar">
-                    </swiper-slide>
-                    <swiper-slide>
-                        <img :src="'<?= BASEURL ?>assets/images/products/' + product.gambar" class="d-block w-100" :alt="product.gambar">
-                    </swiper-slide>
-                    <swiper-slide>
-                        <img :src="'<?= BASEURL ?>assets/images/products/' + product.gambar" class="d-block w-100" :alt="product.gambar">
+                    <swiper-slide v-for="(productImg,idx) in productImages" :key="idx">
+                        <img :src="'<?= BASEURL ?>assets/images/products/' + productImg.file_foto" class="d-block w-100" :alt="product.gambar">
                     </swiper-slide>
                 </swiper-container>
             </div>
@@ -109,7 +103,8 @@
     const app = new Vue({
         el: "#app",
         data: {
-            product: ''
+            product: '',
+            productImages: ''
         },
         methods: {
             getProduct() {
@@ -117,10 +112,16 @@
                     .then(function(response) {
                         app.product = response.data.data
                     })
+            },
+            getProductImage() {
+                axios.get('<?= BASEURL ?>products/getProductImages/<?= $data['id'] ?>')
+                    .then(function(response) {
+                        app.productImages = response.data.data
+                    })
             }
         },
         mounted: function() {
-            this.getProduct()
+            this.getProduct(), this.getProductImage()
         }
     })
 </script>
